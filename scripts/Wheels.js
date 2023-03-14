@@ -1,4 +1,4 @@
-
+import { getWheels } from "./database.js"
 
 
 
@@ -11,3 +11,12 @@ document.addEventListener(
         }
     }
 )
+
+
+
+
+
+
+export const Wheels = () => {
+    return `<h2>Wheels</h2>`
+}

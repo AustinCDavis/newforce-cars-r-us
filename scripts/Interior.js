@@ -1,4 +1,4 @@
-
+import { getInteriors } from "./database.js"
 
 
 
@@ -11,3 +11,12 @@ document.addEventListener(
         }
     }
 )
+
+
+
+
+
+
+export const Interiors = () => {
+    return `<h2>Interior</h2>`
+}

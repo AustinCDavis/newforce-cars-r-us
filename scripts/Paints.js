@@ -1,4 +1,4 @@
-
+import { getPaints } from "./database.js"
 
 
 
@@ -11,3 +11,12 @@ document.addEventListener(
         }
     }
 )
+
+
+
+
+
+
+export const Paints = () => {
+    return `<h2>Paints</h2>`
+}

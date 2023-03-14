@@ -1,7 +1,7 @@
 
 
 const database = {
-    paintColor: [
+    paints: [
       {id: 1, color: "Silver", price: 1},
       {id: 2, color: "Midnight Blue", price: 1},
       {id: 3, color: "Firebrick Red", price: 1},
@@ -34,8 +34,8 @@ const database = {
 }
 
 // get state functions
-export const getPaintColors = () => {
-    return database.paintColor.map(color => ({...color}))
+export const getPaints = () => {
+    return database.paints.map(color => ({...color}))
 }
 export const getInteriors = () => {
     return database.interior.map(seatType => ({...seatType}))
