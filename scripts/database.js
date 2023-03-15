@@ -11,19 +11,24 @@ const database = {
       {id: 1, package: "Beige Fabric", price: 467.83},
       {id: 2, package: "Charcoal Fabric", price: 613.67},
       {id: 3, package: "White Leather", price: 1437.55},
-      {id: 4, package: "Black Leather", price: 1421.45},
+      {id: 4, package: "Black Leather", price: 1421.45}
     ],
     technology: [
       {id: 1, package: "Basic Package", description: "(basic sound system)", price: 368.97},
       {id: 2, package: "Navigation Package", description: "(includes integrated navigation controls)", price: 875.90},
       {id: 3, package: "Visibility Package", description: "(includes side and reat cameras)", price: 674.80},
-      {id: 4, package: "Ultra Package", description: "(includes navigation and visibility packages)", price: 1543.65},
+      {id: 4, package: "Ultra Package", description: "(includes navigation and visibility packages)", price: 1543.65}
     ],
     wheels: [
       {id: 1, package: "17-inch Pair Radial", price: 478.94},
       {id: 2, package: "17-inch Pair Radial Black", price: 520.46},
       {id: 3, package: "18-inch Pair Spoke Silver", price: 780.94},
-      {id: 4, package: "18-inch Pair Spoke Black", price: 846.75},
+      {id: 4, package: "18-inch Pair Spoke Black", price: 846.75}
+    ],
+    models: [
+      {id: 1, package: "Car", price: 1}, //(multiple of standard price)
+      {id: 2, package: "SUV", price: 1.5}, //(multiple of standard price)
+      {id: 3, package: "Truck", price: 2.25} //(multiple of standard price)
     ],
     customOrders: [
         {
@@ -32,6 +37,7 @@ const database = {
             wheelId: 1,
             interiorId: 3,
             techId: 4,
+            modelId: 2,
             timestamp: 123456789
         }
 
@@ -54,6 +60,9 @@ export const getTechOptions = () => {
 export const getWheels = () => {
     return database.wheels.map(rimType => ({...rimType}))
 }
+export const getModels = () => {
+    return database.models.map(model => ({...model}))
+}
 export const getOrders = () => {
     return database.customOrders.map(order => ({...order}))
 }
@@ -73,6 +82,10 @@ export const setInterior = (id) => {
 
 export const setTechnology = (id) => {
     database.orderBuilder.techId = id
+}
+
+export const setModel = (id) => {
+    database.orderBuilder.modelId = id
 }
 
 //export/function for creating permanent orders once create order is pressed

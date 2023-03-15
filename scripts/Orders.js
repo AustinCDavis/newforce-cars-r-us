@@ -1,9 +1,10 @@
-import { getOrders, getPaints, getInteriors, getWheels, getTechOptions } from "./database.js";
+import { getOrders, getPaints, getInteriors, getWheels, getTechOptions, getModels } from "./database.js";
 
 const paints = getPaints()
 const interiors = getInteriors()
 const wheels = getWheels()
 const technologies = getTechOptions()
+const models = getModels()
 
 const buildOrderListItem = (order) => {
     
@@ -35,7 +36,7 @@ const buildOrderListItem = (order) => {
     const wheelCost = foundWheel.price
     const wheelPackage = foundWheel.package
 
-    //Find Technology Price & PAckage
+    //Find Technology Price & Package
     const foundTech = technologies.find(
         (tech) => {
             return tech.id === order.techId
@@ -44,8 +45,17 @@ const buildOrderListItem = (order) => {
     const techCost = foundTech.price
     const techPackage = foundTech.package
 
+    //Find Model Price
+    const foundModel = models.find(
+        (model) => {
+            return model.id === order.modelId
+        }
+    )
+    const modelCost = foundModel.price
+    const modelCar = foundModel.package.toLowerCase()
+
     //Adding for total cost
-    const totalCost = paintCost + interiorCost + wheelCost + techCost
+    const totalCost = (paintCost + interiorCost + wheelCost + techCost) * modelCost
 
     const costString = totalCost.toLocaleString("en-US", {
         style: "currency",
@@ -53,7 +63,7 @@ const buildOrderListItem = (order) => {
     })
     
     return`<li class="orders">
-        ${paintColor} car with ${wheelPackage}, ${interiorPackage}, and ${techPackage} for a total cost of ${costString}
+        ${paintColor} ${modelCar} with ${wheelPackage}, ${interiorPackage}, and ${techPackage} for a total cost of ${costString}
     </li>`
 
 }

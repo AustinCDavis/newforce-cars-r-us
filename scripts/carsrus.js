@@ -3,6 +3,7 @@ import { Interiors } from "./Interior.js"
 import { Technologies } from "./Technology.js"
 import { Wheels } from "./Wheels.js"
 import { Orders } from "./Orders.js"
+import { Models } from "./Models.js"
 import { addCustomOrder } from "./database.js"
 
 document.addEventListener(
@@ -39,6 +40,12 @@ export const CarsRUs = () => {
                 ${Technologies()}
             </section>
             </main>
+            <main id="col">
+            <section class="choices__models options">
+                ${Models()}
+            </section>
+            </main>
+
         </article>
 
         <article>
